@@ -23,44 +23,20 @@ int main (int argc, char *atgv[])
     //printf("\nstrlen of string is %d\r\n strlen of ptr is %d", strlen(string), strlen(ptr)); 
     hex_dump(ptr, length);  
     hex_dump_highlight(ptr, length, 0, length);
-    printf("\n%p", ptr);
+    //printf("\n%p", ptr);
     buffer[i]= ptr; 
   }
-
+  
+  printf("\nSentences enetered are as below: "); 
+  printf("\n%s", buffer[0]); 
   for (int i=1; i<5; i++)
   {
     printf("\n%s", buffer[i]); 
     strcat(buffer[0], buffer[i]); 
   }
+  int bufferLength= strlen(buffer[0]);
 
-  hex_dump_highlight(buffer[0], strlen(buffer[0]), 0, strlen(buffer[0]));
+  hex_dump_highlight(buffer[0], bufferLength, 0, bufferLength);
   
   return 0; 
 }
-
-//Another similar method.........
-
-/*int main(int argc, char *argv[])
-{
-   char strings[5][256];
-
-   for (int i=0; i<5; i++)
-   {
-     printf("Enter sentence %d: ", i+1); 
-     fgets(strings, sizeof(strings), stdin);
-     char *mem= (char* ) malloc(sizeof(char)*strlen(strings));
-     strcpy(mem, strings); 
-     hex_dump(mem, strlen(strings)-1); 
-     hex_dump_highlight(mem, 512, 0, (strlen(strings))-2); 
-   }
-
-   for (int i=0; i<5; i++)
-   {
-   printf("%s", &strings[i]); 
-   }
-
-  return 0; 
-}
-*/
-
-
